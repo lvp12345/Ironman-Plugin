@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F1E2D3C4-B5A6-9870-FEDC-BA0987654321}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ironman</RootNamespace>
+    <AssemblyName>Ironman</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <OutputPath>bin\Debug\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0.15</AssemblyVersion>
+    <FileVersion>1.0.0.15</FileVersion>
+    <Version>1.0.0.15</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AOSharp.Common">
+      <HintPath>lib\AOSharp.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AOSharp.Core">
+      <HintPath>lib\AOSharp.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AOSharp.SharpNav">
+      <HintPath>lib\AOSharp.SharpNav.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ironman.cs" />
+    <Compile Include="BuffManager.cs" />
+    <Compile Include="BuffDatabase.cs" />
+    <Compile Include="Helpers\ModuleHelper.cs" />
+    <Compile Include="Helpers\ModuleManager.cs" />
+    <Compile Include="Modules\TeamInviteModule.cs" />
+    <Compile Include="Modules\TradeHelperModule.cs" />
+    <Compile Include="Modules\NegativeAuraModule.cs" />
+    <Compile Include="Modules\XpManagementModule.cs" />
+    <Compile Include="Modules\DamageMeterModule.cs" />
+    <Compile Include="Modules\DungeonMapModule.cs" />
+    <Compile Include="Modules\MissionRollerModule.cs" />
+    <Compile Include="Modules\VendorModule.cs" />
+    <Compile Include="Modules\BattleStationModule.cs" />
+    <Compile Include="Modules\AutoSaveModule.cs" />
+    <Compile Include="IPCMessages\BattleStationIPCOpcode.cs" />
+    <Compile Include="IPCMessages\BattleStationSignMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <!-- DamageMeter Source Files -->
+    <Compile Include="DamageMeter\DamageMeterUtils.cs" />
+    <Compile Include="DamageMeter\DamageMeterExtensions.cs" />
+    <Compile Include="DamageMeter\SimpleCharData.cs" />
+    <Compile Include="DamageMeter\HitRegisters.cs" />
+    <Compile Include="DamageMeter\Mode.cs" />
+    <Compile Include="DamageMeter\Scope.cs" />
+    <Compile Include="DamageMeter\Format.cs" />
+    <Compile Include="DamageMeter\Midi.cs" />
+    <Compile Include="DamageMeter\N3MessageCallbacks.cs" />
+    <Compile Include="DamageMeter\DamageMeterSettings.cs" />
+    <Compile Include="DamageMeter\MainWindow.cs" />
+    <Compile Include="DamageMeter\DamageMeterWindow.cs" />
+    <Compile Include="DamageMeter\MeterView.cs" />
+    <Compile Include="DamageMeter\TotalDisplayView.cs" />
+    <Compile Include="DamageMeter\SettingsWindow.cs" />
+    <Compile Include="DamageMeter\HelpWindow.cs" />
+    <!-- DungeonMap Source Files -->
+    <Compile Include="DungeonMap\DungeonMapUtils.cs" />
+    <Compile Include="DungeonMap\Edge.cs" />
+    <Compile Include="DungeonMap\EdgeDetection.cs" />
+    <Compile Include="DungeonMap\Config.cs" />
+    <Compile Include="DungeonMap\DllImports.cs" />
+    <Compile Include="DungeonMap\DungeonTerrainHeight.cs" />
+    <Compile Include="DungeonMap\DungeonMapFactory.cs" />
+    <Compile Include="DungeonMap\DungeonMapRenderer.cs" />
+    <Compile Include="DungeonMap\DungeonMapMainWindow.cs" />
+    <Compile Include="DungeonMap\ColorView.cs" />
+    <Compile Include="DungeonMap\DungeonMapEntryView.cs" />
+    <!-- MissionRoller Source Files -->
+    <Compile Include="MissionRoller\MissionRollerExtensions.cs" />
+    <Compile Include="MissionRoller\MissionRollerMidi.cs" />
+    <Compile Include="MissionRoller\MissionRollerStat.cs" />
+    <Compile Include="MissionRoller\MissionRollerSettings.cs" />
+    <Compile Include="MissionRoller\RollEntryProcessor.cs" />
+    <Compile Include="MissionRoller\MissionRollerMainWindow.cs" />
+    <Compile Include="MissionRoller\Views\HeaderView.cs" />
+    <Compile Include="MissionRoller\Views\MissionView.cs" />
+    <Compile Include="MissionRoller\Views\SettingsView.cs" />
+    <Compile Include="MissionRoller\Views\SlidersView.cs" />
+    <Compile Include="MissionRoller\Views\TypesView.cs" />
+    <Compile Include="MissionRoller\Views\ExtrasView.cs" />
+    <Compile Include="MissionRoller\Views\PlayfieldView.cs" />
+    <Compile Include="MissionRoller\Views\MissionRollerHelpWindow.cs" />
+    <Compile Include="MissionRoller\Views\ItemDisplayView.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Include="UI\IronmanSettingWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\IronmanInfoView.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <!-- Rebuffing UI Files -->
+    <Content Include="UI\RebuffingWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\RebuffCategoryHeader.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\RebuffBuffRow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\RebuffBuffRowChecked.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- Buffbot UI Files -->
+    <Content Include="UI\BuffbotWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\BuffbotBuffRow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- Vendor UI Files -->
+    <Content Include="UI\VendorWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\VendorItemView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- DamageMeter UI Files -->
+    <Content Include="UI\DamageMeter\Windows\MainWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Windows\SettingsWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Windows\HelpWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Views\MeterView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Views\TotalDisplayView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- DamageMeter Textures -->
+    <Content Include="UI\DamageMeter\Textures\001_DMPauseButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\002_DMResumeButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\003_DMResetButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\004_DMDumpButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\005_DMSettingsButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\006_DMBackground.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\007_DMBarBackground.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\008_DMBarForeground.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\009_DMSoloButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\010_DMGroupButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\011_DMAllButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\012_DMGreenCircle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\013_DMRedCircle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\014_DMHeaderIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\015_DMRedCloseButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\016_DMRedMinus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\017_DMGreenPlus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\018_DMSettingsBackground.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\019_DMBigLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\020_DMHelpButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DamageMeter\Textures\021_DMLogButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- Sound Files -->
+    <Content Include="UI\Sound\Click.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- DungeonMap UI Files -->
+    <Content Include="UI\DungeonMap\MainWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DungeonMap\ColorView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DungeonMap\EntryView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- Buff Database -->
+    <Content Include="config\buffsdb.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- JSON Settings Files -->
+    <Content Include="JSON\DamageMeterSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON\DungeonMapConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <!-- Sound Files (Alert.wav) -->
+    <Content Include="UI\Sound\Alert.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- MissionRoller UI Files -->
+    <Content Include="UI\MissionRoller\Windows\MainWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Windows\HelpWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Windows\GraphicalHelpWindow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\BrowserEntryView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\ExtrasView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\HeaderView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\ItemDisplayView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\MissionView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\PlayfieldEntryView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\PlayfieldView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\RollEntryView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\SettingsView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\SliderView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\MissionRoller\Views\TypesView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- MissionRoller Textures -->
+    <Content Include="UI\MissionRoller\Textures\**\*.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <!-- MissionRoller JSON Files -->
+    <Content Include="JSON\MissionRoller\Default_Settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON\MissionRoller\ItemDb_Clusters.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON\MissionRoller\ItemDB_Implants.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON\MissionRoller\ItemDb_Nanos.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON\MissionRoller\ItemDb_Refined.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON\MissionRoller\ItemDb_Rest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON\MissionRoller\MissionLevels.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON\MissionRoller\ModTags.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
